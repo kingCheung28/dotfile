@@ -12,9 +12,9 @@ lspsaga.setup {
   },
   diagnostic = {
     show_code_action = false,
-    show_source = false
+    show_source = false,
   },
   lightbulb = {
-    enable = false
+    enable = true 
   }
 }

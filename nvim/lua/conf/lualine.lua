@@ -15,6 +15,20 @@ local colors = {
   red      = '#ec5f67',
 }
 
+local conditions = {
+  buffer_not_empty = function()
+    return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+  end,
+  hide_in_width = function()
+    return vim.fn.winwidth(0) > 80
+  end,
+  check_git_workspace = function()
+    local filepath = vim.fn.expand('%:p:h')
+    local gitdir = vim.fn.finddir('.git', filepath .. ';')
+    return gitdir and #gitdir > 0 and #gitdir < #filepath
+  end,
+}
+
 local config = {
   options = {
     theme = "catppuccin",
@@ -43,6 +57,7 @@ local config = {
     lualine_x = {},
   },
 }
+
 
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
@@ -78,13 +93,14 @@ ins_left {
 
 ins_left {
   function()
-    return '♥'
+    return '💕'
   end,
   color = { fg = colors.red, gui = 'bold' }
 }
 
 ins_left {
   -- Lsp server name .
+  --[[
   function()
     local msg = 'lsp'
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
@@ -100,9 +116,14 @@ ins_left {
     end
     return msg
   end,
-  icon = '',
+  ]]
+  icon = '🤪',
   color = { fg = '#ffffff', gui = 'bold' },
-  separator = ''
+  separator = '',
+  'filename',
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.magenta, gui = 'bold' },
+
 }
 
 ins_left {
@@ -113,10 +134,14 @@ ins_left {
 }
 
 ins_left {
-  'diagnostics',
-  sources = { 'nvim_lsp' },
-  symbols = { error = ' ', warn = ' ', info = ' ' },
-  separator = ''
+ 'diagnostics',
+  sources = { 'nvim_diagnostic' },
+  symbols = { error = '😡', warn = '😟', info = '🙂' },
+  diagnostics_color = {
+    color_error = { fg = colors.red },
+    color_warn = { fg = colors.yellow },
+    color_info = { fg = colors.cyan },
+  },
 }
 
 ins_right {
