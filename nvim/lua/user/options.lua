@@ -30,12 +30,15 @@ local options = {
   wrap = false,                            -- display lines as one long line
   scrolloff = 8,                           -- keep 8 height offset from above and bottom
   sidescrolloff = 8,                       -- keep 8 width offset from left and right
-  list = true,
+  list = false,
   wildmenu = true,
+  --[[
   listchars ={
     -- tab = '>-',
     trail = '▫',
   }
+  --]]
+
 }
 
 vim.opt.shortmess:append "c"

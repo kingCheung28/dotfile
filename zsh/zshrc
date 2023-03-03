@@ -154,7 +154,7 @@ alias t='cd /mnt/d/Desktop/t'
 alias lst='ls --tree'
 
 #fzf-ui
-export FZF_DEFAULT_OPTS='--height 80% --layout=reverse --border --multi --info=inline --exact  '
+#export FZF_DEFAULT_OPTS='--height 80% --layout=reverse --border --multi --info=inline --exact  '
 #fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
