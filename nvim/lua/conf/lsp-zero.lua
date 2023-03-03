@@ -17,18 +17,15 @@ lsp.on_attach(function(client, bufnr)
     local bind = vim.keymap.set
 
     bind('n', 'gd', "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", bufopt)
-
-    -- bind('n', 'K', '<cmd>Lspsaga hover_doc<cr>', bufopt)
-
-    bind('n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', bufopt)
     bind('n', '<leader>lf', function() vim.lsp.buf.format({ async = true }) end, bufopt)
     bind('n', '<leader>rn', function() vim.lsp.buf.rename() end, bufopt) -- rename
-    -- bind('n', '<leader>dh', vim.diagnostic.goto_prev, bufopt)
-    -- bind('n', '<leader>dl', vim.diagnostic.goto_next, bufopt)
 
     -- Lspsaga Diagnostic
     bind('n', '<leader>dj', '<cmd>Lspsaga diagnostic_jump_next<cr>', bufopt)
     bind('n', '<leader>dk', '<cmd>Lspsaga diagnostic_jump_prev<cr>', bufopt)
+    bind('n', '<leader>k', "<cmd>Lspsaga hover_doc<CR>")
+    bind('n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', bufopt)
+    bind('n', 'gh', "<cmd>Lspsaga peek_definition<CR>", bufopt)
 end)
 
 -- format on save
@@ -81,7 +78,7 @@ lsp.setup_nvim_cmp({
         documentation = cmp.config.window.bordered(),
     }
 })
-
+--[[
 lsp.set_preferences {
     sign_icons = {
         error = 'E',
@@ -90,7 +87,7 @@ lsp.set_preferences {
         info = 'I'
     }
 }
-
+--]]
 lsp.setup()
 
 vim.diagnostic.config({
@@ -99,12 +96,5 @@ vim.diagnostic.config({
     update_in_insert = false,
     underline = true,
     severity_sort = true,
-    float = {
-        focusable = false,
-        style = 'minimal',
-        border = 'rounded',
-        source = 'always',
-        header = '',
-        prefix = '',
-    },
+    float = false,
 })

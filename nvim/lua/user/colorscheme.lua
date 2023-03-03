@@ -1,8 +1,8 @@
 local colorscheme = "catppuccin"
-local ok, _ = pcall(require,colorscheme)
+local ok, _ = pcall(require, colorscheme)
 if not ok then
-  vim.notify("colorscheme:" .. colorscheme .. " not found!")
-  return
+    vim.notify("colorscheme:" .. colorscheme .. " not found!")
+    return
 end
 
 colorscheme = require('catppuccin')

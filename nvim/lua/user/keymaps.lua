@@ -1,6 +1,6 @@
 local opt = {
-  noremap = true,
-  silent = true,
+    noremap = true,
+    silent = true,
 }
 local bind = vim.api.nvim_set_keymap
 
@@ -20,7 +20,7 @@ bind("v", "J", "5j", opt)
 bind("v", "K", "5k", opt)
 
 -- file
-bind("n", "Q", ":q<CR>", opt)
+bind("n", "Q", ":q!<CR>", opt)
 bind("n", "S", ":w<CR>", opt)
 
 -- split window
