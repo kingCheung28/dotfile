@@ -18,13 +18,13 @@ lsp.on_attach(function(client, bufnr)
 
     bind('n', 'gd', "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", bufopt)
     bind('n', '<leader>lf', function() vim.lsp.buf.format({ async = true }) end, bufopt)
-    bind('n', '<leader>rn', function() vim.lsp.buf.rename() end, bufopt) -- rename
 
-    -- Lspsaga Diagnostic
-    bind('n', '<leader>dj', '<cmd>Lspsaga diagnostic_jump_next<cr>', bufopt)
-    bind('n', '<leader>dk', '<cmd>Lspsaga diagnostic_jump_prev<cr>', bufopt)
+    -- Lspsaga
+    bind('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", bufopt) -- rename
+    bind('n', '<leader>dj', '<cmd>Lspsaga diagnostic_jump_next<CR>', bufopt)
+    bind('n', '<leader>dk', '<cmd>Lspsaga diagnostic_jump_prev<CR>', bufopt)
     bind('n', '<leader>k', "<cmd>Lspsaga hover_doc<CR>")
-    bind('n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', bufopt)
+    bind('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', bufopt)
     bind('n', 'gh', "<cmd>Lspsaga peek_definition<CR>", bufopt)
 end)
 
