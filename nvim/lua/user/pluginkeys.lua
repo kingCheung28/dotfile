@@ -12,5 +12,5 @@ bind('n', '<leader>ff',
     '<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({ previewer = false, hidden = true, file_ignore_patterns = {".git", "vendor", "node_modules"} }))<CR>')
 bind('n', '<leader>fb', '<cmd>Telescope git_branches<CR>')
 bind('n', '<leader>fs', '<cmd>Telescope git_status<CR>')
-bind('n', '<leader>fo', '<cmd>lua require("telescope.builtin").find_files()<cr>')
+bind('n', '<leader>fo', '<cmd>lua require("telescope.builtin").oldfiles()<cr>')
 
