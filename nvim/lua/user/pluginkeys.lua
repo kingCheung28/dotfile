@@ -14,3 +14,6 @@ bind('n', '<leader>fb', '<cmd>Telescope git_branches<CR>')
 bind('n', '<leader>fs', '<cmd>Telescope git_status<CR>')
 bind('n', '<leader>fo', '<cmd>lua require("telescope.builtin").oldfiles()<cr>')
 
+-- floatTerm
+bind('n', '<leader>t', '<cmd>FloatermToggle<CR>')
+

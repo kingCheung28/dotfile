@@ -2,6 +2,7 @@ local options = {
     backup = false,          -- creates a backup file
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
     cmdheight = 1,           -- keep status bar position close to bottom
+    encoding = "utf-8",
     fileencoding = "utf-8",  -- the encoding written to a file
     hlsearch = true,         -- highlight all matches on previous search pattern
     incsearch = true,        -- 边输入边搜索

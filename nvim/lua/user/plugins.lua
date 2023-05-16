@@ -66,4 +66,5 @@ require("lazy").setup({
     "nvim-telescope/telescope-ui-select.nvim",
     "akinsho/bufferline.nvim",
     "numToStr/Comment.nvim",
+    'voldikss/vim-floaterm',
 })

@@ -7,6 +7,8 @@ local bind = vim.api.nvim_set_keymap
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.mapleader = ' '
+
 bind("n", "s", "", opt)
 
 -- move
